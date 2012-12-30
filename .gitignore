@@ -18,3 +18,23 @@ local.properties
 # Eclipse project files
 .classpath
 .project
+.DS_Store
+.cordova/.DS_Store
+.cordova/hooks/.DS_Store
+.idea/.name
+.idea/ant.xml
+.idea/compiler.xml
+.idea/copyright/profiles_settings.xml
+.idea/encodings.xml
+.idea/flexCompiler.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/scopes/scope_settings.xml
+.idea/uiDesigner.xml
+.idea/vcs.xml
+.idea/workspace.xml
+platforms/android/Android.iml
+platforms/android/ant.properties
+platforms/android/assets/www/Www.iml
+www/Www.iml
+www/test.html

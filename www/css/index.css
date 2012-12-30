@@ -1,0 +1,168 @@
+
+body{
+
+    background-image:url(../img/intro_background.jpg);
+    background-repeat:no-repeat;
+    background-position: center;
+    overflow: hidden;
+
+}
+
+.app {
+
+    margin: 0 auto;
+
+}
+
+.app header {
+
+    clear:both;
+    float:left;
+    width:100%;
+    color: white;
+    font-size: 1.3em;
+    text-align: center;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+
+}
+
+.app hgroup{
+
+    text-align:center;
+    color: white;
+    margin: 0;
+
+}
+
+.appName{
+
+    font-size: 6em;
+
+}
+
+.appSlogan{
+
+    font-size: 2em;
+    margin-top: -70px;
+
+}
+
+.app nav{
+
+    float:left;
+    width:100%;
+    overflow:hidden;
+    position:relative;
+
+}
+
+.sectionNav {
+
+    clear:left;
+    float:left;
+    list-style:none;
+    margin:0;
+    padding:0;
+    position:relative;
+    left:50%;
+    text-align:center;
+
+}
+
+.sectionNav li {
+
+    display:block;
+    float:left;
+    list-style:none;
+    margin:0;
+    padding:0;
+    position:relative;
+    right:50%;
+
+}
+
+.sectionNav li a{
+
+    display:block;
+    margin:0 0 0 1px;
+    padding:0 10px 0 10px;
+    text-decoration:none;
+    
+
+    line-height: 90px;
+    width: 70px;
+    text-indent: -5000px;
+
+}
+
+.sectionNav #createBtn a{
+
+    background:url(../img/create.png) center no-repeat;
+
+}
+
+.sectionNav #openBtn a{
+
+    background:url(../img/open.png) center no-repeat;
+    margin-left: 10px;
+
+}
+
+.sectionNav #shareBtn a{
+
+    background:url(../img/share.png) center no-repeat;
+
+}
+
+.status {
+    background-color:#333333;
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:1em;
+    margin:0px auto;
+    padding:2px 10px;
+    text-align:center;
+    width:100%;
+    max-width:175px;
+}
+
+.status.complete {
+    background-color:#4B946A;
+}
+
+.hide {
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+/* portrait */
+/* @media screen and (max-aspect-ratio: 1/1) */
+
+/* lanscape (when wide enough) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:445px) {
+    .app {
+       /* background-position:left center;*/
+        /*height:140px;   */    /* height + padding = background image size */
+        /*padding-left:170px;*/ /* background width */
+        /*padding-top:60px;*/    /* center the text */
+    }
+}

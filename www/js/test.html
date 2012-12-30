@@ -1,0 +1,37 @@
+<nav>
+    <ul>
+        <li><a href="history">Home</a></li>
+        <li><a href="hello">hello</a></li>
+        <li><a href="about">About</a></li>
+    </ul>
+</nav>
+<script type="text/javascript">
+
+    // NodeLists do not have a forEach method
+    [].forEach.call(document.querySelectorAll("nav a"),function(e) {
+
+        var url = window.location.pathname;
+        var filename = url.substring(url.lastIndexOf('/')+1);
+
+        console.log(filename);
+
+        e.addEventListener("click", function(evt) {
+
+            var title = this.textContent;
+
+            var path = this.href;
+            var fragment = path.substring(path.lastIndexOf('/')+1);
+
+            //Change the URL
+            history.pushState(null, title, filename + '/' + fragment);
+            //Do some ajax stuff
+
+            console.log(url, filename);
+
+            //Prevent the browsers default behaviour of navigating to the hyperlink
+            evt.preventDefault();
+
+        })
+    });
+
+</script>

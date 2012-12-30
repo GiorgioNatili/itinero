@@ -22,5 +22,6 @@ local.properties
 # Mac Files
 *.DS_Store
 
-# Intellij Project Filse
+# Intellij Project Files
 *.iml
+*.idea

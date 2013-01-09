@@ -6,6 +6,7 @@ body {
     height:100%;
     font-size:12px;
     width:100%;
+    overflow: hidden;
 }
 
 html {
@@ -31,6 +32,8 @@ body {
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
 
 }
+
+img{border:0px;}
 
 /* Header styles */
 .header ul {
@@ -73,8 +76,8 @@ header a, header a:hover, header a:visited{
     position:relative;	/* This fixes the IE7 overflow hidden bug */
     clear:both;
     float:left;
-    width:100%;			/* width of whole page */
-    height: 95%;
+    width:300%;			/* width of whole page */
+    height: 100%;
     overflow:hidden;		/* This chops off any overhanging divs */
     text-align: center;
 
@@ -83,14 +86,79 @@ header a, header a:hover, header a:visited{
 .app section {
     float:left;
     position:relative;
-    padding:0 0 1em 0;
-    overflow:hidden;
-    width:96%;			/* page width minus left and right padding */
-    left:2%;			/* page left padding */
     height: 100%;
     margin: 0;
     background-position:center top;
+    width: 33.33%;
 }
+
+/* App Main Screens */
+.gray-background{
+
+    /* Safari 5.1, Chrome 10+ */
+    background: -webkit-linear-gradient(top, #d2d4d5, #f1f2f2);
+    /* Firefox 3.6+ */
+    background: -moz-linear-gradient(top, #d2d4d5, #f1f2f2);
+    /* IE 10 */
+    background: -ms-linear-gradient(top, #d2d4d5, #f1f2f2);
+
+}
+
+.centered-vertical{
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 30%;
+    width: 50%;
+    margin: -15% 0 0 -25%;
+
+}
+
+/* App Main Section Screens */
+.welcomeText {
+
+    font-size: 3.3em;
+    margin: 0;
+
+}
+
+/* App Main Sections size */
+.section-mainIcon{
+
+    margin: 10px auto 0 auto;
+    height: 106px;
+    width: 106px;
+
+    /* Radius needed to render properly the shadow */
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+
+    text-indent: -5000px;
+}
+
+/* Create Icon */
+.create-start{background: url(../img/sprite.png) no-repeat 0 0;}
+/* Open Icon */
+.open-start{background: url(../img/sprite.png) no-repeat -106px 0;}
+/* Share Icon */
+.share-start{background: url(../img/sprite.png) no-repeat 0 -106px;}
+
+/* Retina Display Sprites */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+    .create-start,
+    .open-start,
+    .share-start{
+        /* Reference the @2x Sprite */
+        background-image: url(../img/sprite@2x.png);
+        /* Translate the @2x sprite's dimensions back to 1x */
+        background-size: 298px 421px;
+    }
+}
+
+
 
 /* Footer styles */
 footer {
@@ -105,3 +173,11 @@ footer p {
     color: white;
 }
 /* --> */
+
+.shadow{
+
+    -moz-box-shadow:    2px 2px 2px 2px #ccc;
+    -webkit-box-shadow: 2px 2px 2px 2px #ccc;
+    box-shadow:         2px 2px 2px 2px #ccc;
+
+}

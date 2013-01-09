@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+</head>
+<body>
+
+<div id="wrapper" style="width: 100%; border: 1px solid green; display: inline-block;">
+    <div id="one" style="width: 290px; height: 200px; border: 1px solid red;float: left;">
+        <p>Ciao</p>
+    </div>
+    <div id="two" style="width: 160px; height: 200px; border: 1px solid red;float: left;">
+        <p>Ciao</p>
+    </div>
+    <div id="three" style="width: 230px; height: 200px; border: 1px solid red;float: left;">
+        <p>Ciao</p>
+    </div>
+</div>
+<script type="text/javascript" src="../js/libs/alice.min.js"></script>
+<script type="text/javascript">
+
+    var count = 0;
+    var wrapperElements = document.getElementById('wrapper').children;
+
+    var startX = 0;
+    var shift = 0;
+
+    document.addEventListener('click', function(evt){
+
+        "use strict";
+
+        try{
+
+            shift += parseInt(wrapperElements[count].style.width, 10);
+
+        }catch(err){
+
+            count = startX = 0;
+            shift = parseInt(wrapperElements[count].style.width, 10);
+
+        }
+
+        console.log('shift',  shift);
+        console.log('startX', startX);
+
+        var config = {elems: wrapperElements,
+            delay: {value: "0ms", randomness: "0%"},
+            duration: {value: "1500ms", randomness: "0%"},
+            timing: "ease",
+            iteration: "1",
+            direction: "false",
+            playstate: "running",
+            move: {direction: "right", start:  startX + "px", end: "-" + shift + 'px'},
+            rotate: "0%",
+            flip: "",
+            turns: "1",
+            fade: "",
+            scale: {from: "100%", to: "100%"},
+            shadow: "false",
+            perspective: "1000",
+            perspectiveOrigin: "center",
+            overshoot: "2%",
+            backfaceVisibility: "visible"};
+
+        alice.plugins.cheshire(config);
+
+        startX -= parseInt(wrapperElements[count].style.width, 10);
+        count++;
+
+    });
+
+
+    alice.plugins.cheshire({elems: ['wrapper'],
+        delay: {value: "0ms", randomness: "0%"},
+        duration: {value: "1ms", randomness: "0%"},
+        timing: "ease",
+        iteration: "1",
+        direction: "false",
+        playstate: "running",
+        move: {direction: "right", start: 0 + "px", end: "0px"},
+        rotate: "0%",
+        flip: "",
+        turns: "1",
+        fade: "",
+        scale: {from: "100%", to: "100%"},
+        shadow: "false",
+        perspective: "1000",
+        perspectiveOrigin: "center",
+        overshoot: "2%",
+        backfaceVisibility: "visible"});
+
+
+    function doTransition(elements, x, s){
+
+        alice.plugins.cheshire({"elems": ['one'],
+            "delay": {"value": "0ms","randomness": "0%"},
+            "duration": {"value": "1500ms","randomness": "0%"},
+            "timing": "ease",
+            "iteration": "1",
+            "direction": "false",
+            "playstate": "running",
+             "move": "left",
+             /*  "move": {"direction": "left", "start":  "0px", "end": "-" + s},*/
+            "rotate": "0%",
+            "flip": "",
+            "turns": "1","fade": "",
+            "scale": {"from": "100%","to": "100%"},
+            "shadow": "false",
+            "perspective": "1000",
+            "perspectiveOrigin": "center",
+            "overshoot": "2%",
+            "backfaceVisibility": "visible"});
+
+      //  startX = parseInt(shift, 10);
+
+    }
+
+   // setInterval(function(){doTransition(elements)}, 3000);
+   // doTransition(elements);
+
+   // doTransition();
+
+</script>
+
+</body>
+</html>

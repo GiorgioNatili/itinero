@@ -1,0 +1,81 @@
+<div id='push' style="color: green;"></div>
+<div id='pop' style="color: red;"></div>
+<nav>
+    <ul>
+        <li><a href="history">Home</a></li>
+        <li id = 'hello'><a href="hello">hello</a></li>
+        <li id = 'about'><a href="about">About</a></li>
+    </ul>
+</nav>
+<script type="text/javascript">
+
+
+   /* window.onpopstate = function () {
+
+        console.log('accccd')
+
+    }*/
+
+   function onPopState(evt){
+
+       console.dir(evt);
+
+       if(evt.state){
+
+            document.getElementById('pop').appendChild(document.createTextNode(evt.state.view + '\n'));
+
+       }
+
+       evt.preventDefault();
+   }
+
+   function onPushState(evt){
+
+       console.dir(evt);
+
+       if(evt.detail){
+
+            document.getElementById('push').appendChild(document.createTextNode(evt.detail.view + '\n'));
+
+       }
+
+       evt.preventDefault();
+
+   }
+
+    window.addEventListener('popstate', onPopState);
+    window.addEventListener('pushtate', onPushState);
+
+    // NodeLists do not have a forEach method
+    [].forEach.call(document.querySelectorAll("nav a"),function(e) {
+
+        e.addEventListener("click", function(evt) {
+
+            var title = this.textContent;
+            var path = this.href;
+            var view = path.substring(path.lastIndexOf('/') + 1)
+
+            console.log(title, path);
+
+            //Change the URL
+            history.pushState({view: view}, title, path);
+
+            var event = new CustomEvent("pushtate", {detail: {
+                                                            view: view
+
+                                                        },
+                                                    bubbles: true,
+                                                    cancelable: true
+                                        });
+
+            this.dispatchEvent(event);
+
+            //Do some ajax stuff
+
+            //Prevent the browsers default behaviour of navigating to the hyperlink
+            evt.preventDefault();
+
+        })
+    });
+
+</script>

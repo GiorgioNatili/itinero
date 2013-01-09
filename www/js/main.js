@@ -11,6 +11,7 @@ require.config({
         mustache: 'libs/mustache',
         alice: 'libs/alice.min',
         text: 'libs/require/plugins/text',
+        domReady: 'libs/require/plugins/domReady',
         templates: 'tpl'
     },
 
@@ -39,4 +40,5 @@ require([
 
     // The "app" dependency is passed in as "App"
     app.init(appData);
+
 });

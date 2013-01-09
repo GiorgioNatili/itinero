@@ -2,11 +2,16 @@
 define('index', [
         'mustache',
         'alice',
-        'text'], (function(mustache, alice){
+        'routers/approuter',
+        'controllers/SplashScreen',
+        'utils/spinner'], (function(mustache, alice, approuter, splashScreen, spinner){
 
     var appData;
 
     var bindEvents = function() {
+
+        spinner.init('body', '214,214,214');
+        spinner.start()
 
         if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
 
@@ -18,6 +23,8 @@ define('index', [
 
         }
 
+        addEventListener('resetView', onResetView);
+
     };
 
     var onDeviceReady = function() {
@@ -25,15 +32,41 @@ define('index', [
         console.log('Received Event: onDeviceReady');
 
         // Build the main app view
-        loadTemplates();
+        loadTemplate();
 
     };
 
-    var templatesReady = function(splash){
+    var initInteraction = function() {
+
+        var links = document.getElementsByClassName('sectionNav')[0].getElementsByTagName('a');
+        splashScreen.start(links);
+
+    };
+
+    var onResetView = function() {
+
+        initInteraction();
+
+    };
+
+    var templateReady = function(splash){
+
+        spinner.dispose();
 
         buildSplashScreen(splash);
 
-       // navigator.splashscreen.hide();
+        approuter.init();
+        initInteraction();
+
+        try{
+
+            navigator.splashscreen.hide();
+
+        }catch (error){
+
+            console.log('SplashScreen Hide Error', error.message);
+
+        }
 
     };
 
@@ -45,14 +78,12 @@ define('index', [
 
     };
 
-    var loadTemplates = function () {
+    var loadTemplate = function () {
 
         require([
             'text!../tpl/splash-tpl.html'
-        ], templatesReady);
+        ], templateReady);
 
-
-        console.log(document.paths)
 
     };
 

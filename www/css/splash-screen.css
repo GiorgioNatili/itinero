@@ -90,31 +90,36 @@ body{
     padding:0 10px 0 10px;
     text-decoration:none;
     
-
-    line-height: 90px;
-    width: 70px;
+    line-height: 105px;
+    width: 85px;
     text-indent: -5000px;
 
 }
 
 .sectionNav #createBtn a{
-
-    background:url(../img/create.png) center no-repeat;
-
+    background:url(../img/sprite.png) no-repeat -108px -108px;
 }
 
 .sectionNav #openBtn a{
-
-    background:url(../img/open.png) center no-repeat;
-    margin-left: 10px;
-
+    background:url(../img/sprite.png) no-repeat 0 -214px;
 }
 
 .sectionNav #shareBtn a{
-
-    background:url(../img/share.png) center no-repeat;
-
+    background:url(../img/sprite.png) no-repeat -108px -214px;
 }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+    .sectionNav #createBtn a,
+    .sectionNav #openBtn a,
+    .sectionNav #shareBtn a{
+        /* Reference the @2x Sprite */
+        background-image: url(../img/sprite@2x.png);
+        /* Translate the @2x sprite's dimensions back to 1x */
+        background-size: 298px 421px;
+    }
+}
+
 
 .status {
     background-color:#333333;

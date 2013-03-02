@@ -18,3 +18,24 @@ local.properties
 # Eclipse project files
 .classpath
 .project
+.DS_Store
+platforms/.DS_Store
+platforms/android/.DS_Store
+platforms/android/Android.iml
+platforms/android/assets/.DS_Store
+platforms/android/assets/www/.DS_Store
+platforms/android/assets/www/Www.iml
+platforms/android/assets/www/js/.DS_Store
+platforms/android/assets/www/js/libs/.DS_Store
+platforms/android/assets/www/js/libs/require/.DS_Store
+platforms/android/assets/www/tpl/.DS_Store
+platforms/android/res/.DS_Store
+platforms/android/src/.DS_Store
+platforms/android/src/co/.DS_Store
+platforms/android/src/co/urtrip/.DS_Store
+www/.DS_Store
+www/Www.iml
+www/js/.DS_Store
+www/js/libs/.DS_Store
+www/js/libs/require/.DS_Store
+www/tpl/.DS_Store
